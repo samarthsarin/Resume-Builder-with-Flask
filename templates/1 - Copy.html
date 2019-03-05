@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sign Up</title>    
+
+     <style>
+body {background-color: powderblue;}
+h1   {color: black;}
+p    {color: red;}
+.content {
+  max-width: 1000px;
+  margin: auto;
+
+}
+
+H2 {display: inline;}
+
+H3 {display: inline;}
+
+H4 {display: inline;}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+select {
+  width: 70%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
+
+input[type=text]:focus {
+  border: 3px solid #555;
+}
+input[type=text]{
+width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+background-color: #f8f8f8;
+  box-sizing: border-box;
+}
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+</style>
+  </head>
+ 
+  <body>
+<div class="content">
+<center><h1>Welcome to Resume Builder </h1>
+<br>
+ 
+       <form action="" method="post">
+        <input type="text" placeholder="First Name" name="first_name" value="{{
+          request.form.firstname }}">
+         <input type="text" placeholder="Last Name" name="last_name" required value="{{
+          request.form.last_name }}">
+<input type="text" placeholder="E-mail" name="email" required value="{{
+          request.form.email }}">
+
+<br></center>
+<center>
+<h3>Gender</h3>
+<h4>
+<input type="radio" name="gender" id="option1" value="Male"> Male</input>
+<input type="radio" name="gender" id="option2" value="Female"> Female </input>
+<br></h4>
+<br>
+
+
+<h3> Skills</h3>
+<h4>
+<input type="checkbox" name="skills" value="Python"> Python
+<input type="checkbox" name="skills" value="Java"> Java
+<input type="checkbox" name="skills" value="C++"> C++
+<input type="checkbox" name="skills" value="DBMS"> DBMS
+<br>
+<br>
+</h4>
+<h2>Education Qualifications</h2>
+<br>
+<table style="width:70%">
+<br>
+  <tr>
+    <th>Degree</th>
+    <th>College</th> 
+    <th>CGPA </th>
+  </tr>
+  <tr>
+    <td><input type="text" placeholder="Degree" name="degree1" value="{{
+          request.form.degree1 }}"></td>
+    <td><input type="text" placeholder="College" name="college1" value="{{
+          request.form.college1 }}"></td>
+    <td><input type="text" placeholder="CGPA / Percentage" name="cgpa1" value="{{
+          request.form.college1 }}"></td>
+  </tr>
+  <tr>
+    <td><input type="text" placeholder="Degree" name="degree2" value="{{
+          request.form.degree2 }}"></td>
+    <td><input type="text" placeholder="College" name="college2" value="{{
+          request.form.college2 }}"></td>
+    <td><input type="text" placeholder="CGPA / Percentage" name="cgpa2" value="{{
+          request.form.cgpa2 }}"></td>
+  </tr>
+  <tr>
+    <td><input type="text" placeholder="Degree" name="degree3" value="{{
+          request.form.degree3 }}"></td>
+    <td><input type="text" placeholder="College" name="college3" value="{{
+          request.form.college3 }}"></td>
+    <td><input type="text" placeholder="CGPA / Percentage" name="cgpa3" value="{{
+          request.form.cgpa3 }}"></td>
+  </tr>
+</table>
+
+<h3> Qualifications </h3>
+<br>
+<select name= qualifications method="GET" action="/">
+    {% for qualification in qualifications%}
+    <option value= "{{qualification}}" SELECTED>{{qualification}}</option>"
+    {% endfor %}
+</select>
+<br>
+<br>
+
+
+<h3> Year of Passing   </h3>
+<br>
+<select name= year_passing method="GET" action="/">
+    {% for year in year_passing %}
+    <option value= "{{year}}" SELECTED>{{year}}</option>"
+    {% endfor %}
+</select>
+
+<br>
+<br>
+<h3> Experience   </h3>	<br>
+<select name= experience method="GET" action="/">
+    {% for experience in experiences%}
+    <option value= "{{experience}}" SELECTED>{{experience}}</option>"
+    {% endfor %}
+</select>
+<br>
+<br>
+<h3>Prefered Job Location   </h3>
+<input type="text" placeholder="Prefered Job Location" name="job_location" required value="{{
+          request.form.job_location }}"><br>
+<h3>Contact Number     &ensp; &ensp;  &ensp;</h3>
+<input type="text" placeholder="Contact Number" name="contact_number" required value="{{
+          request.form.contact_number }}">
+<br>
+<br>
+<h3>Github Profile    &ensp;  &ensp; &ensp;  &ensp;</h3>
+<input type="text" placeholder="Github Profile URL" name="github" required value="{{
+          request.form.github }}">
+<h3>
+<br>
+<br>
+<h3>LinkedIn Profile     &ensp; &ensp;  &ensp;</h3>
+<input type="text" placeholder="LinkedIn Profile URL" name="linkedin" required value="{{
+          request.form.linkedin }}">
+<br>
+<br></h3>
+<h3>
+<h3> Looking to work in which sector </h3>
+<br>
+<select name= sectors method="GET" action="/">
+    {% for sector in sectors%}
+    <option value= "{{sector}}" SELECTED>{{sector}}</option>"
+    {% endfor %}
+</select>
+<br>
+<br>
+<h3> Experience Level </h3>
+<br>
+<select name= experience_level method="GET" action="/">
+    {% for experiencelevel  in experience_level%}
+    <option value= "{{experiencelevel}}" SELECTED>{{experiencelevel}}</option>"
+    {% endfor %}
+</select>
+<br>
+<br>
+        <input class="btn btn-default" type="submit" value="Submit">
+      
+ 	{% if error%}
+        	<p class="error"><strong></strong> {{ error}}</p>
+      	{% endif %}
+
+
+</div></center>
+  </body></form>
+      </div>
+</html>

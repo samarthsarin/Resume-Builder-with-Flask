@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sign Up</title>    
+
+     
+  </head>
+ 
+  <body>
+
+<h1>Welcome to Resume Builder </h1>
+<br>
+ 
+       <form action="" method="post">
+        <input type="text" placeholder="First Name" name="first_name" value="{{
+          request.form.firstname }}">
+         <input type="text" placeholder="Last Name" name="last_name" value="{{
+          request.form.last_name }}">
+        <input class="btn btn-default" type="submit" value="Sign Up">
+      </form>
+      </div>
+ 	{% if error%}
+        	<p class="error"><strong></strong> {{ error}}</p>
+      	{% endif %}
+
+  </body>
+</html>
